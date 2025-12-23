@@ -35,6 +35,7 @@ From the fern/ directory, start the development server :
 
 '''bash
 fern docs dev
+'''
 
 This will launch a local documentation site in your browser.
 Changes to MDX files, styles, or configuration will automatically reload.
