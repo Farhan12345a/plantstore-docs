@@ -33,12 +33,13 @@ Install the Fern CLI globally using 'npm install -g fern-api'
 
 From the fern/ directory, start the development server :
 
+'''bash
 fern docs dev
 
 This will launch a local documentation site in your browser.
 Changes to MDX files, styles, or configuration will automatically reload.
 
-The main landing page is written in MDX and located in 'fern/pages/'
+The main landing page is written in MDX and located in [fern/pages/](fern/pages) 
 
 The landing page uses Fern components such as:
 - Cards and CardGroups
