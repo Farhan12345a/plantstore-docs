@@ -1,35 +1,80 @@
-# Fern Work Sample Demo
+# Prince Plants — API Documentation Demo 🌿👑
 
-You'll be modifying the contents of this repository to create a demo Fern website for a mock Plant Store company. In this scenario, we will be showing the Plant Store company this website, along with the repository used to generate the website, so be sure to keep the repository clean and ready to show a potential client. Prospective customers evaluate docs on ease of use, styling and custom features (more on this later).
+This repository contains a demo API documentation website for **Prince Plants**, a fictional plant store company.  
+The site is built using **Fern** and demonstrates how a production-ready API landing page and reference documentation could be structured for a real customer.
 
-Follow the steps in this `README.md` to get started.
+This project is intended to showcase:
+- A polished API landing page
+- Clear developer onboarding and examples
+- A clean, client-ready repository structure
 
-## 1. Installation
+---
 
-To start, install the Fern CLI: 
+## What’s included
 
-```
+- A custom API landing page written in MDX using Fern components
+- Auto-generated API reference documentation from an OpenAPI (Swagger) spec
+- Custom branding and styling for the Prince Plants product
+- Global custom JavaScript (floating action button)
+- Example API requests in JavaScript and Python
+
+---
+
+## Project structure
+
+fern/
+├── pages/ # Landing pages and guides (MDX)
+├── openapi/ # OpenAPI specification for the Plant Store API
+├── images/ # Logos and static assets
+├── docs.yml # Fern site configuration (navigation, theme, branding)
+├── custom.js # Global JavaScript (floating action button)
+└── styles.css # Custom styling overrides
+
+---
+
+## Prerequisites
+
+- Node.js (v18 or newer recommended)
+- npm
+- Fern CLI
+
+Install the Fern CLI globally (bash) :
+
 npm install -g fern-api
-```
 
-This will allow you to use Fern in the terminal to check and publish your demo site. 
 
-## 2. Project Naming
+## Running the documentation locally
 
-Fern requires you to specify a unique organization name and website domain to generate a project. 
+From the fern/ directory, start the development server (bash):
 
-First, update the organization name defined in the [`fern.config.json`](/fern/fern.config.json) file to something other than `sample-demo-site`. As an example, you could use `firstName-lastName-demo`
+fern docs dev
+
+This will launch a local documentation site in your browser.
+Changes to MDX files, styles, or configuration will automatically reload.
+
+The main landing page is written in MDX and located in:
+fern/pages/
+
+The landing page uses Fern components such as:
+- Cards and CardGroups
+- Steps
+- Tabs
+- Accordions
+- Callouts (Note, Warning, Info)
+You can edit content, reorder sections, or add new components directly in the MDX file.
+
+The API reference is generated automatically from the OpenAPI specification located at:
+fern/openapi/
+
+To update the API documentation:
+1. Modify the OpenAPI YAML file
+2. Save the changes
+3. Reload the docs site
+Fern will regenerate the API reference automatically.
+
+## Publishing the documentation:
+When ready, the documentation can be published with:
+fern docs publish
+This deploys the site to the configured Fern domain.
 
 Next, update _only the first subdomain_ of the `url` field defined in the [`docs.yml`](/fern/docs.yml) file to something other than `sample-demo-site`. The resulting URL should look something like `firstName-lastName-demo.docs.buildwithfern.com` and publish the docs site.
-
-## 3. Complete the Work Sample
-
-Complete the steps outlined in the [Overview page](/fern/pages/overview.mdx).
-
-## 4. Push to a GitHub Repository
-
-Publish the contents of this folder to a GitHub repository. Be sure to remove any unnecessary files. 
-
-## 5. Replace this README.md
-
-Finally, since we'll be showing the fake Plant Store company this repository during the demo, replace the contents of this `README.md` with some helpful instructions for getting started and using the project. 
