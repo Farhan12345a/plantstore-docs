@@ -1,4 +1,4 @@
-# Prince Plants — API Documentation Demo 🌿👑
+# Prince Plants API Documentation
 
 This repository contains a demo API documentation website for **Prince Plants**, a fictional plant store company.  
 The site is built using **Fern** and demonstrates how a production-ready API landing page and reference documentation could be structured for a real customer.
@@ -50,8 +50,7 @@ You can edit content, reorder sections, or add new components directly in the MD
 
 ## API Reference
 
-The API reference is generated automatically from the OpenAPI specification located at:
-fern/openapi/
+The API reference is generated automatically from the OpenAPI specification located at ['fern/openapi/']
 
 To update the API documentation:
 1. Modify the OpenAPI YAML file
