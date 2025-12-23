@@ -20,40 +20,25 @@ This project is intended to showcase:
 
 ---
 
-## Project structure
-
-fern/
-├── pages/ # Landing pages and guides (MDX)
-├── openapi/ # OpenAPI specification for the Plant Store API
-├── images/ # Logos and static assets
-├── docs.yml # Fern site configuration (navigation, theme, branding)
-├── custom.js # Global JavaScript (floating action button)
-└── styles.css # Custom styling overrides
-
----
-
 ## Prerequisites
 
 - Node.js (v18 or newer recommended)
 - npm
 - Fern CLI
 
-Install the Fern CLI globally (bash) :
-
-npm install -g fern-api
+Install the Fern CLI globally using 'npm install -g fern-api'
 
 
 ## Running the documentation locally
 
-From the fern/ directory, start the development server (bash):
+From the fern/ directory, start the development server :
 
 fern docs dev
 
 This will launch a local documentation site in your browser.
 Changes to MDX files, styles, or configuration will automatically reload.
 
-The main landing page is written in MDX and located in:
-fern/pages/
+The main landing page is written in MDX and located in 'fern/pages/'
 
 The landing page uses Fern components such as:
 - Cards and CardGroups
@@ -62,6 +47,8 @@ The landing page uses Fern components such as:
 - Accordions
 - Callouts (Note, Warning, Info)
 You can edit content, reorder sections, or add new components directly in the MDX file.
+
+## API Reference
 
 The API reference is generated automatically from the OpenAPI specification located at:
 fern/openapi/
@@ -75,6 +62,7 @@ Fern will regenerate the API reference automatically.
 ## Publishing the documentation:
 When ready, the documentation can be published with:
 fern docs publish
+
 This deploys the site to the configured Fern domain.
 
 Next, update _only the first subdomain_ of the `url` field defined in the [`docs.yml`](/fern/docs.yml) file to something other than `sample-demo-site`. The resulting URL should look something like `firstName-lastName-demo.docs.buildwithfern.com` and publish the docs site.
