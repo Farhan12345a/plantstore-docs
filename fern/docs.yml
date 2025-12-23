@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=https://schema.buildwithfern.dev/docs-yml.json
+
+instances:
+  - url: https://farhan-shahbaz-demo-site.docs.buildwithfern.com
+    custom-domain: docs.princeplants.com
+    audiences:
+      - public
+
+title: Prince Plants
+favicon: images/prince_plants.png
+logo:
+  dark: images/prince_plants.png  
+  light: images/prince_plants.png  
+  #right-text: Docs
+
+js:
+  - path: ./custom.js
+    strategy: afterInteractive
+    
+navigation:
+  - page: Overview
+    path: ./pages/overview.mdx
+  - api: API Reference
+
+colors:
+  accentPrimary: 
+    light: '#123456'
+    dark: '#123456'
+  background: 
+    light: '#ffffff'
+    dark: '#000000'
+  border:
+    light: "#e5e7eb"
+    dark: "#1f2937"
+  sidebar-background:
+    light: "#f9fafb"
+    dark: "#111827"
+  header-background:
+    light: "#ffffff"
+    dark: "#0d0e11"
+
+navbar-links:
+  - type: minimal
+    text: Contact support
+    href: https://buildwithfern.com/learn/home
+    target: _blank
+    icon: fa-solid fa-headset
+  - type: primary
+    text: Login
+    url: https://dashboard.buildwithfern.com/login
+
+footer-links:
+  github: https://github.com/your-org/your-repo

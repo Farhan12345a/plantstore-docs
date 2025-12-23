@@ -1,0 +1,249 @@
+---
+title: Prince Plants API
+---
+
+https://buildwithfern.com/learn/docs/getting-started/global-configuration
+
+
+The royal API for building plant storefronts, inventory dashboards, and order flows.
+
+<Callout intent="info" title="What this API is for">
+  Use Prince Plants to manage **plants**, **availability**, and **search** through a simple REST interface—designed for production traffic.
+</Callout>
+
+
+## What you can build with Prince Plants
+
+<CardGroup cols={2}>
+  <Card title="Storefront catalog" icon="regular leaf" href="/api-reference/plant">
+    Power your product pages and search results with live plant data.
+  </Card>
+
+  <Card title="Inventory dashboard" icon="regular chart-bar" href="/api-reference/plant/search/status">
+    Filter by availability and status for ops and fulfillment teams.
+  </Card>
+
+  <Card title="Order management" icon="regular clipboard" href="/api-reference/orders">
+    Create and update orders from your checkout flow or POS system.
+  </Card>
+
+  <Card title="Partner integrations" icon="regular handshake" href="/api-reference">
+    Connect nurseries, marketplaces, and distributors via REST endpoints.
+  </Card>
+</CardGroup>
+
+---
+
+## Quickstart
+
+<Steps>
+  <Step title="Get an API key">
+    Create an API key in the Prince Plants developer dashboard.
+    <Note>Use a sandbox key while testing locally.</Note>
+  </Step>
+
+   <Step title="Make your first request">
+    Fetch all available plants:
+
+    ```js
+    const response = await fetch(
+      "https://api.princeplants.dev/v3/plant/search/status?status=available",
+      {
+        headers: {
+          Authorization: "Bearer YOUR_API_KEY",
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Request failed: ${response.status}`);
+    }
+
+    const plants = await response.json();
+    console.log(plants);
+    ```
+  </Step>
+
+ <Step title="Create your first plant">
+    Add a new plant to your catalog:
+
+    ```js
+    const response = await fetch("https://api.princeplants.dev/v3/plant", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer YOUR_API_KEY",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: "Emerald Monstera",
+        status: "available",
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Request failed: ${response.status}`);
+    }
+
+    const plant = await response.json();
+    console.log(plant);
+    ```
+  </Step>
+
+</Steps>
+
+
+---
+
+## Core API concepts
+
+<Callout intent="info" title="Mental model">
+  Prince Plants is resource-oriented. Plants are created, fetched by ID, updated, and searched by status.
+</Callout>
+
+<AccordionGroup>
+  <Accordion title="Plants">
+    The Plant resource represents an item in your catalog.
+
+    - Create plants with `POST /plant`
+    - Fetch a plant by ID with `GET /plant/{plantId}`
+    - Update or remove plants as inventory changes
+  </Accordion>
+
+  <Accordion title="Search & availability">
+    Search endpoints allow filtering plants by availability status.
+
+    Common statuses include:
+    - available
+    - pending
+    - sold
+  </Accordion>
+
+  <Accordion title="Authentication">
+    All endpoints require authentication using a Bearer token passed in the request headers.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+
+## How the API works
+
+<Callout intent="info" title="Mental model">
+  Prince Plants is a resource-oriented API. Plants are created, retrieved by ID, and searched by status.
+</Callout>
+
+<Warning>
+  All requests require authentication. Missing or invalid credentials will result in a <code>401 Unauthorized</code> response.
+</Warning>
+
+<Note>
+  Base URL: <code>https://api.plantstore.dev/v3</code>
+</Note>
+
+---
+
+## Example: Search plants by status
+
+<Tabs>
+  <Tab title="JavaScript">
+    ```js
+    const response = await fetch(
+      "https://api.plantstore.dev/v3/plant/search/status?status=available",
+      {
+        headers: {
+          Authorization: "Bearer YOUR_API_KEY",
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Request failed: ${response.status}`);
+    }
+
+    const plants = await response.json();
+    console.log(plants);
+    ```
+  </Tab>
+
+  <Tab title="Python">
+    ```python
+    import requests
+
+    response = requests.get(
+        "https://api.plantstore.dev/v3/plant/search/status",
+        params={"status": "available"},
+        headers={"Authorization": "Bearer YOUR_API_KEY"},
+    )
+
+    response.raise_for_status()
+    plants = response.json()
+    print(plants)
+    ```
+  </Tab>
+</Tabs>
+---
+
+## Frequently Asked Questions
+
+<AccordionGroup>
+  <Accordion title="What is the Prince Plants API?" defaultOpen={true}>
+    The Prince Plants API allows developers to programmatically manage a plant store’s catalog, inventory, and orders. 
+    It provides RESTful endpoints for creating plants, updating availability, and retrieving plant data for storefronts or internal tools.
+  </Accordion>
+
+  <Accordion title="Who is this API intended for?">
+    The API is designed for e-commerce developers, internal operations teams, and partners who want to integrate plant inventory 
+    and order management into web or mobile applications.
+  </Accordion>
+
+  <Accordion title="How do I authenticate with the API?">
+    All requests require an API key passed as a Bearer token in the <code>Authorization</code> header.
+    API keys can be generated and rotated from the Prince Plants developer dashboard.
+  </Accordion>
+
+  <Accordion title="What environments are available?">
+    Prince Plants provides a sandbox environment for testing and a production environment for live traffic.
+    Each environment uses a separate API key to prevent accidental data mixing.
+  </Accordion>
+
+  <Accordion title="How do I create a new plant in the catalog?">
+    You can create a plant by sending a <code>POST</code> request to the <code>/plant</code> endpoint with details such as name, status, and category.
+    The API returns the newly created plant object with a unique identifier.
+  </Accordion>
+
+  <Accordion title="Can I search for plants by availability or status?">
+    Yes. The <code>/plant/search/status</code> endpoint allows you to filter plants by status, such as available, pending, or sold.
+    This is useful for powering storefront filters or internal inventory dashboards.
+  </Accordion>
+
+  <Accordion title="How are plant IDs generated?">
+    Plant IDs are generated automatically by the system when a plant is created.
+    These IDs are globally unique and should be used when retrieving, updating, or deleting plant records.
+  </Accordion>
+
+  <Accordion title="Does the API support pagination?">
+    Yes. List and search endpoints support pagination to help manage large plant catalogs efficiently.
+    Pagination parameters allow you to control page size and traversal.
+  </Accordion>
+
+  <Accordion title="How do I update or remove a plant?">
+    Existing plants can be updated using a <code>PUT</code> request and removed with a <code>DELETE</code> request 
+    to the <code>/plant/{'{plantId}'}</code> endpoint.
+  </Accordion>
+
+  <Accordion title="What happens if I exceed the rate limit?">
+    If you exceed the rate limit, the API will return a <code>429 Too Many Requests</code> response.
+    Rate limits are enforced to ensure reliability and fair usage across all clients.
+  </Accordion>
+
+  <Accordion title="Is the API suitable for production use?">
+    Yes. The Prince Plants API is designed for production workloads and is used internally to power our own plant storefront.
+    High availability and consistent response times are core design goals.
+  </Accordion>
+
+  <Accordion title="Where can I get support or report issues?">
+    Developers can reach out through the Prince Plants support portal or contact our engineering team directly 
+    via the support email listed in the dashboard.
+  </Accordion>
+</AccordionGroup>
+
