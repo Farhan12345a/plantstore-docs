@@ -50,7 +50,7 @@ You can edit content, reorder sections, or add new components directly in the MD
 
 ## API Reference
 
-The API reference is generated automatically from the OpenAPI specification located at ['api.yml'](/fern/openapi/api.yml)
+The API reference is generated automatically from the OpenAPI specification located at [api.yml](/fern/openapi/api.yml)
 
 To update the API documentation:
 1. Modify the OpenAPI YAML file
