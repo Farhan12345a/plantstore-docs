@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://schema.buildwithfern.dev/docs-yml.json
 
 instances:
-  - url: https://farhan-shahbaz-demo-site.docs.buildwithfern.com
+  - url: https://princeplants.docs.buildwithfern.com
     custom-domain: docs.princeplants.com
     audiences:
       - public
@@ -16,7 +16,7 @@ logo:
 js:
   - path: ./custom.js
     strategy: afterInteractive
-    
+
 navigation:
   - page: Overview
     path: ./pages/overview.mdx
@@ -39,6 +39,33 @@ colors:
     light: "#ffffff"
     dark: "#0d0e11"
 
+theme:
+  sidebar: minimal
+  body: canvas
+  tabs: bubble
+  page-actions: toolbar
+  footer-nav: minimal
+
+settings:
+  search-text: "Search the docs..."
+  disable-search: false
+  disable-explorer-proxy: false
+  disable-analytics: true
+  dark-mode-code: true
+  default-search-filters: true
+  http-snippets: false
+  hide-404-page: true
+  use-javascript-as-typescript: false
+
+page-actions:
+  default: copy-page
+  options:
+    copy-page: true
+    ask-ai: true
+    cursor: true
+    vscode: true
+    claude: true
+    
 navbar-links:
   - type: minimal
     text: Contact support
