@@ -26,12 +26,12 @@ This project is intended to showcase:
 - npm
 - Fern CLI
 
-Install the Fern CLI globally using 'npm install -g fern-api'
+Install the Fern CLI globally using : npm install -g fern-api
 
 
 ## Running the documentation locally
 
-From the fern/ directory, start the development server : [fern docs dev]
+From the [fern/](fern/)  directory, start the development server (bash) : fern docs dev
 
 This will launch a local documentation site in your browser.
 Changes to MDX files, styles, or configuration will automatically reload.
